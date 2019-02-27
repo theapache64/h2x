@@ -7,24 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ab529ec-0997-4e5a-90f5-b4506a7a1b3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../js/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../js/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../js/src/main/kotlin/Index.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/theah64/h2x/CU.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/theah64/h2x/H2X.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/theah64/h2x/SwipeRow.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/theah64/h2x/SwipeRowUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js/src/main/kotlin/CU.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js/src/main/kotlin/H2X.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js/src/main/kotlin/SwipeRow.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js/src/main/kotlin/SwipeRowUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../js/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.meta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js/root-package.kjsm" beforeDir="false" afterPath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js/root-package.kjsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../js/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/src/main/kotlin/Index.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../js/src/main/kotlin/Index.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h2x.iml" beforeDir="false" afterPath="$PROJECT_DIR$/h2x.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/h2x_war_exploded/form_handler.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/h2x_war_exploded/form_handler.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theah64/h2x/CU.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theah64/h2x/H2X.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theah64/h2x/SwipeRow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theah64/h2x/SwipeRowUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/theah64/h2x/lab/Lab.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/web/nav_bar.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <caret line="7" column="6" selection-end-line="7" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -73,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/common_headers.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+            <state relative-caret-position="30">
+              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -84,15 +78,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/form.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -109,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/SwipeRowUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
+            <state relative-caret-position="825">
               <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
             </state>
           </provider>
@@ -118,7 +103,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/SwipeRow.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
+            <state relative-caret-position="330">
               <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
             </state>
           </provider>
@@ -127,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/form_handler.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <state relative-caret-position="165">
+              <caret line="122" column="24" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -176,10 +161,10 @@
         <option value="$PROJECT_DIR$/src/com/theah64/h2x/H2X.java" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
         <option value="$PROJECT_DIR$/src/com/theah64/h2x/SwipeRow.kt" />
-        <option value="$PROJECT_DIR$/web/form_handler.jsp" />
         <option value="$PROJECT_DIR$/src/com/theah64/h2x/CU.kt" />
         <option value="$PROJECT_DIR$/src/com/theah64/h2x/H2X.kt" />
         <option value="$PROJECT_DIR$/src/com/theah64/h2x/SwipeRowUtils.kt" />
+        <option value="$PROJECT_DIR$/web/form_handler.jsp" />
       </list>
     </option>
   </component>
@@ -210,6 +195,24 @@
             <path>
               <item name="jsp" type="b2602c69:ProjectViewProjectNode" />
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="h2x" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jsp" type="b2602c69:ProjectViewProjectNode" />
@@ -249,7 +252,7 @@
     <property name="last_opened_file_path" value="/opt/apache-tomcat-8.5.38/lib/servlet-api.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -364,25 +367,28 @@
       <workItem from="1545111692706" duration="176000" />
       <workItem from="1549530000162" duration="1111000" />
       <workItem from="1551275146151" duration="142000" />
-      <workItem from="1551282528959" duration="994000" />
+      <workItem from="1551282528959" duration="1802000" />
+      <workItem from="1551286726505" duration="93000" />
+      <workItem from="1551286925384" duration="1771000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28485000" />
+    <option name="totallyTimeSpent" value="31157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Web" order="3" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.2749004" />
+      <window_info content_ui="combo" id="Project" order="4" weight="0.28446215" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32766616" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32713178" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" />
       <window_info anchor="bottom" id="Message" order="5" />
@@ -467,59 +473,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/lab/DataModel.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/SwipeRow.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/lab/Lab.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11710">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/H2X.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/lab/Lab.java" />
     <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/CU.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/nav_bar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/common_headers.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/form.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/SwipeRowUtils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -530,10 +488,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/SwipeRow.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/SwipeRowUtils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/nav_bar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/common_headers.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-655">
+          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/theah64/h2x/H2X.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/form_handler.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        <state relative-caret-position="165">
+          <caret line="122" column="24" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -616,6 +616,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>KotlinJavaRuntime</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

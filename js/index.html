@@ -1,12 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
     <title>h2x</title>
-    <script src="build/classes/kotlin/main/lib/kotlin.js"></script>
-    <script src="build/classes/kotlin/main/js.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">h2x</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!--First Page-->
+    <div id="firstPage">
+        <div class="row">
+
+            <div class="col-sm-8">
+
+                <form id="fh2x" method="POST" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="xp_id">XPlannerID:</label>
+                        <div class="col-sm-9">
+
+                            <input name="xp_id"
+                                   type="number"
+                                   class="form-control"
+                                   id="xp_id"
+                                   placeholder="Enter your XPlannerID here"
+                                   required>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="fun_perc">Fun Percentage: </label>
+                        <div class="col-sm-9">
+
+                            <input name="fun_perc"
+                                   type="number"
+                                   class="form-control"
+                                   id="fun_perc"
+                                   placeholder="Enter percentage of fun you had on each day"
+                                   value="8.5"
+                                   required>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label
+                                class="control-label col-sm-3"
+                                for="swipe_data">
+                            Swipe Data
+                        </label>
+
+                        <div class="col-sm-9">
+
+                        <textarea name="swipe_data"
+                                  rows="10"
+                                  class="form-control"
+                                  id="swipe_data"
+                                  required></textarea>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button id="bGenScript" class="btn btn-primary">Generate Script</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Second Page-->
+    <div id="secondPage">
+        <div class="row">
+
+            <h4><b>Swipe Details</b></h4>
+
+            <div class="col-md-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sl.No.</th>
+                        <th>Date.</th>
+                        <th>In Date</th>
+                        <th>In Time</th>
+                        <th>Out Date</th>
+                        <th>Out Time</th>
+                        <th>Worked Hours</th>
+                        <th>Fun%</th>
+                        <th>Fun Hours</th>
+                        <th>Net Worked Hours</th>
+                        <th>Day Status</th>
+                        <th>Temporary Card ID</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%
+                    float totalWorkedHours = 0;
+                    float totalFunHours = 0;
+                    float netWorkedHours = 0;
+                    for (final SwipeRow swipeRow : swipeRows) {
+
+                    if (swipeRow.getfNetWorkedHours() > 0) {
+                    dates.append(String.format("{ \"date\": \"%s\", \"durs\": %s },", swipeRow.getRequestedDate(),
+                    swipeRow.getfNetWorkedHours()));
+                    }
+
+                    totalWorkedHours += swipeRow.getfWorkedHours();
+                    totalFunHours += swipeRow.getfFunHours();
+                    netWorkedHours += swipeRow.getfNetWorkedHours();
+                    %>
+                    <tr>
+                        <td><%=CU.hyphenIfNull(swipeRow.getSlNo())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getRequestedDate())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getInDate())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getInTime())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getOutDate())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getOutTime())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getWorkedHours())%>
+                        </td>
+                        <td><%=swipeRow.getFunPerc() + "%"%>
+                        </td>
+                        <td><%=swipeRow.getfFunHours()%>
+                        </td>
+                        <td><%=swipeRow.getfNetWorkedHours() %>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getDayStatus())%>
+                        </td>
+                        <td><%=CU.hyphenIfNull(swipeRow.getTemporaryCardId())%>
+                        </td>
+                    </tr>
+                    <%
+                    }
+
+
+                    %>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <%--Stat--%>
+        <div class="row">
+            <div class="col-sm-offset-8 col-sm-4">
+                <div class="pull-right">
+                    <p> Total Worked Hours: <b><%=totalWorkedHours%>
+                    </b></p>
+                    <p> Total Fun Hours: <b><%=totalFunHours%>
+                    </b></p>
+                    <p> Net Worked Hours: <b><%=netWorkedHours%>
+                    </b></p>
+                </div>
+            </div>
+        </div>
+
+        <%--Script --%>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="taScript" class="control-label">Add Script: </label>
+                        <textarea class="form-control" rows="20" id="taScript">
+                        // load jquery
+var myForm = document.getElementsByName('timelog')[0];
+myForm.onsubmit = function () {
+    var popUpId = 'PopUp' + Math.random();
+    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');
+    this.target = popUpId;
+};
+
+
+var jq = document.createElement('script');
+jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
+document.getElementsByTagName('head')[0].appendChild(jq);
+
+var key = setInterval(function () {
+    if (jq) {
+        start();
+        clearInterval(key);
+    }
+}, 1000);
+
+
+function start() {
+
+    // date and duration
+    var dateAndDurs = [ <%=dates.toString()%>];
+
+
+    // find second last row
+    var secondLastRow = $("form[name='timelog'] div#editObject table tbody tr:last").prev();
+
+    // my id
+    var myXPlannerID = <%=xplannerId%>;
+
+    // Selecting user
+    $(secondLastRow).find(":nth-child(6) select").val(myXPlannerID);
+
+
+    // looping through
+    $(dateAndDurs).each(function (index, item) {
+
+        // Set date
+        $(secondLastRow).find(":nth-child(3) input").val(item.date);
+
+        // Set duration
+        $(secondLastRow).find(":nth-child(4) input").val(item.durs);
+
+        console.log('Submitting with ', item);
+
+        // submit
+        $("input[name='submit']").click();
+
+    });
+
+    location.reload();
+
+
+}
+                    </textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <%--Delete script--%>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="dScript" class="control-label">Delete Script: </label>
+                        <textarea class="form-control" rows="20" id="dScript">
+
+                        // load jquery
+
+var myForm = document.getElementsByName('timelog')[0];
+myForm.onsubmit = function () {
+    var popUpId = 'PopUp' + Math.random();
+    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');
+    this.target = popUpId;
+};
+
+
+var jq = document.createElement('script');
+jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
+document.getElementsByTagName('head')[0].appendChild(jq);
+
+var key = setInterval(function () {
+    if (jq) {
+        start();
+        clearInterval(key);
+    }
+}, 1000);
+
+
+function start() {
+
+      // date and duration
+  var dateAndDurs = [
+    <%=dates.toString()%>
+  ];
+
+    // my id
+    var myXPlannerID = <%=xplannerId%>;;
+
+
+    $("form[name='timelog'] div#editObject table tbody tr").each(function (index, item) {
+
+        var iReportedDate = $(item).find('td:nth-child(3) input');
+                        var iPerson1 = $(item).find('td:nth-child(6) select');
+
+        var repDate = $(iReportedDate).val();
+                        var personId = parseInt($(iPerson1).val());
+
+        // looping each date
+        $(dateAndDurs).each(function (index, item2) {
+            if (repDate === item2.date && personId=== myXPlannerID) {
+                $(item).find("input[type='checkbox']").attr('checked', true);
+            }
+        });
+
+
+    });
+
+    // submit
+    $("input[name='submit']").click();
+
+
+}</textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
 </body>
+<script src="build/classes/kotlin/main/lib/kotlin.js"></script>
+<script src="build/classes/kotlin/main/js.js"></script>
 </html>
