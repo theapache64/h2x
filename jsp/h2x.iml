@@ -29,5 +29,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="servlet-api" level="application" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
   </component>
 </module>

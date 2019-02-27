@@ -3,6 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/h2x</output-path>
     <root id="archive" name="h2x.war">
       <element id="artifact" artifact-name="h2x:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="KotlinJavaRuntime" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

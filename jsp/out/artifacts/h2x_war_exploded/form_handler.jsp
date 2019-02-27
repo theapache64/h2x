@@ -108,7 +108,7 @@
                     </td>
                     <td><%=swipeRow.getfFunHours()%>
                     </td>
-                    <td><%=swipeRow.getfNetWorkedHours()%>
+                    <td><%=swipeRow.getfNetWorkedHours() %>
                     </td>
                     <td><%=CU.hyphenIfNull(swipeRow.getDayStatus())%>
                     </td>
