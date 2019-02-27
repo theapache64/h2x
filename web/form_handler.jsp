@@ -65,7 +65,7 @@
                     <th>Out Date</th>
                     <th>Out Time</th>
                     <th>Worked Hours</th>
-                    <th>Fun Perc</th>
+                    <th>Fun%</th>
                     <th>Fun Hours</th>
                     <th>Net Worked Hours</th>
                     <th>Day Status</th>
@@ -104,11 +104,11 @@
                     </td>
                     <td><%=CU.hyphenIfNull(swipeRow.getWorkedHours())%>
                     </td>
-                    <td><%=swipeRow.getFunPerc()%>
+                    <td><%=swipeRow.getFunPerc() + "%"%>
                     </td>
                     <td><%=swipeRow.getfFunHours()%>
                     </td>
-                    <td><%=swipeRow.getfNetWorkedHours()%>
+                    <td><%=swipeRow.getfNetWorkedHours() %>
                     </td>
                     <td><%=CU.hyphenIfNull(swipeRow.getDayStatus())%>
                     </td>

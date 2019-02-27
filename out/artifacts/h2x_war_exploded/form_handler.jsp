@@ -11,9 +11,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 
+    final String xplannerId = request.getParameter(H2X.KEY_XP_ID).trim();
+
     final List<SwipeRow> swipeRows = H2X.getSwipeRows(
             response,
-            request.getParameter(H2X.KEY_XP_ID),
+            xplannerId,
             request.getParameter(H2X.KEY_SWIPE_DATA),
             request.getParameter(H2X.KEY_FUN_PERC)
     );
@@ -63,7 +65,7 @@
                     <th>Out Date</th>
                     <th>Out Time</th>
                     <th>Worked Hours</th>
-                    <th>Fun Perc</th>
+                    <th>Fun%</th>
                     <th>Fun Hours</th>
                     <th>Net Worked Hours</th>
                     <th>Day Status</th>
@@ -102,7 +104,7 @@
                     </td>
                     <td><%=CU.hyphenIfNull(swipeRow.getWorkedHours())%>
                     </td>
-                    <td><%=swipeRow.getFunPerc()%>
+                    <td><%=swipeRow.getFunPerc() + "%"%>
                     </td>
                     <td><%=swipeRow.getfFunHours()%>
                     </td>
@@ -177,7 +179,7 @@ function start() {
     var secondLastRow = $("form[name='timelog'] div#editObject table tbody tr:last").prev();
 
     // my id
-    var myXPlannerID = 654446;
+    var myXPlannerID = <%=xplannerId%>;
 
     // Selecting user
     $(secondLastRow).find(":nth-child(6) select").val(myXPlannerID);
@@ -247,7 +249,7 @@ function start() {
   ];
 
     // my id
-    var myXPlannerID = 654446;
+    var myXPlannerID = <%=xplannerId%>;;
 
 
     $("form[name='timelog'] div#editObject table tbody tr").each(function (index, item) {

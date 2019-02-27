@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <%--Swipe data--%>
+                <%--Swipe lab--%>
                 <div class="form-group">
 
                     <label

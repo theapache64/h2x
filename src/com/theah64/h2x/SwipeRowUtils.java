@@ -1,7 +1,6 @@
 package com.theah64.h2x;
 
 
-import com.sun.deploy.util.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -54,7 +53,7 @@ public class SwipeRowUtils {
             );
 
         } else {
-            throw new IllegalArgumentException("Invalid swipe data. Column name must be 9 but got " + columns.length);
+            throw new IllegalArgumentException("Invalid swipe lab. Column name must be 9 but got " + columns.length);
         }
     }
 
