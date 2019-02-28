@@ -1,7 +1,10 @@
 if (typeof kotlin === 'undefined') {
   throw new Error("Error loading module 'js'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'js'.");
 }
-var js = function (_, Kotlin) {
+if (typeof this['kotlinx-html-js'] === 'undefined') {
+  throw new Error("Error loading module 'js'. Its dependency 'kotlinx-html-js' was not found. Please, check whether 'kotlinx-html-js' is loaded prior to 'js'.");
+}
+var js = function (_, Kotlin, $module$kotlinx_html_js) {
   'use strict';
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var unboxChar = Kotlin.unboxChar;
@@ -9,7 +12,11 @@ var js = function (_, Kotlin) {
   var throwCCE = Kotlin.throwCCE;
   var trimIndent = Kotlin.kotlin.text.trimIndent_pdl1vz$;
   var StringBuilder_init = Kotlin.kotlin.text.StringBuilder_init;
+  var get_create = $module$kotlinx_html_js.kotlinx.html.dom.get_create_4wc2mh$;
   var Unit = Kotlin.kotlin.Unit;
+  var td = $module$kotlinx_html_js.kotlinx.html.td_vlzo05$;
+  var tr = $module$kotlinx_html_js.kotlinx.html.js.tr_9pz0lc$;
+  var ensureNotNull = Kotlin.ensureNotNull;
   var toString = Kotlin.toString;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$;
@@ -17,7 +24,6 @@ var js = function (_, Kotlin) {
   var listOf = Kotlin.kotlin.collections.listOf_i5x0yv$;
   var reversed = Kotlin.kotlin.collections.reversed_7wnvza$;
   var joinToString = Kotlin.kotlin.collections.joinToString_fmv235$;
-  var ensureNotNull = Kotlin.ensureNotNull;
   var equals = Kotlin.equals;
   var toInt = Kotlin.kotlin.text.toInt_pdl1vz$;
   var numberToInt = Kotlin.numberToInt;
@@ -141,6 +147,95 @@ var js = function (_, Kotlin) {
     }
     return H2X_instance;
   }
+  function main$lambda$lambda$lambda$lambda(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.slNo));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_0(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.requestedDate));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_1(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.inDate));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_2(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.inTime));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_3(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.outDate));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_4(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.outTime));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_5(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.workedHours));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_6(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(closure$swipeRow.funPerc.toString() + '%');
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_7(closure$swipeRow) {
+    return function ($receiver) {
+      +closure$swipeRow.getfFunHours();
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_8(closure$swipeRow) {
+    return function ($receiver) {
+      +closure$swipeRow.getfNetWorkedHours();
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_9(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.dayStatus));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda$lambda_10(closure$swipeRow) {
+    return function ($receiver) {
+      $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.temporaryCardId));
+      return Unit;
+    };
+  }
+  function main$lambda$lambda$lambda(closure$swipeRow) {
+    return function ($receiver) {
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_0(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_1(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_2(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_3(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_4(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_5(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_6(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_7(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_8(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_9(closure$swipeRow));
+      td($receiver, void 0, main$lambda$lambda$lambda$lambda_10(closure$swipeRow));
+      return Unit;
+    };
+  }
   function main$lambda(closure$iXpId, closure$iFunPerc, closure$taSwipeData, closure$firstPage, closure$secondPage) {
     return function (it) {
       var xpId = closure$iXpId.value;
@@ -152,6 +247,25 @@ var js = function (_, Kotlin) {
       closure$secondPage.hidden = false;
       var swipeRows = H2X_getInstance().getSwipeRows_eaqb6n$(xpId, swipeData, funPerc);
       var dates = StringBuilder_init();
+      if (swipeRows != null) {
+        var tmp$;
+        var tbSwipeRows = document.getElementById('tbSwipeDetails');
+        var totalWorkedHours = 0.0;
+        var totalFunHours = 0.0;
+        var netWorkedHours = 0.0;
+        tmp$ = swipeRows.iterator();
+        while (tmp$.hasNext()) {
+          var swipeRow = tmp$.next();
+          if (swipeRow.getfNetWorkedHours() > 0) {
+            dates.append_gw00v9$('{ ' + '"' + 'date' + '"' + ': ' + '"' + swipeRow.requestedDate + '"' + ', ' + '"' + 'durs' + '"' + ': ' + swipeRow.getfNetWorkedHours() + ' },');
+          }
+          totalWorkedHours += swipeRow.getfWorkedHours();
+          totalFunHours += swipeRow.getfFunHours();
+          netWorkedHours += swipeRow.getfNetWorkedHours();
+          var tr_0 = tr(get_create(document), void 0, main$lambda$lambda$lambda(swipeRow));
+          ensureNotNull(tbSwipeRows).appendChild(tr_0);
+        }
+      }
       return Unit;
     };
   }
@@ -160,12 +274,13 @@ var js = function (_, Kotlin) {
     println('Hello World');
     var firstPage = Kotlin.isType(tmp$ = document.getElementById('firstPage'), HTMLDivElement) ? tmp$ : throwCCE();
     var secondPage = Kotlin.isType(tmp$_0 = document.getElementById('secondPage'), HTMLDivElement) ? tmp$_0 : throwCCE();
+    firstPage.hidden = false;
+    secondPage.hidden = true;
     var iXpId = Kotlin.isType(tmp$_1 = document.getElementById('xp_id'), HTMLInputElement) ? tmp$_1 : throwCCE();
     var iFunPerc = Kotlin.isType(tmp$_2 = document.getElementById('fun_perc'), HTMLInputElement) ? tmp$_2 : throwCCE();
     var taSwipeData = Kotlin.isType(tmp$_3 = document.getElementById('swipe_data'), HTMLTextAreaElement) ? tmp$_3 : throwCCE();
     var fh2x = Kotlin.isType(tmp$_4 = document.getElementById('fh2x'), HTMLFormElement) ? tmp$_4 : throwCCE();
     fh2x.addEventListener('submit', main$lambda(iXpId, iFunPerc, taSwipeData, firstPage, secondPage));
-    secondPage.hidden = true;
   }
   function SwipeRow(slNo, requestedDate, dayStatus, inDate, inTime, outDate, outTime, workedHours, temporaryCardId, funPerc) {
     this.slNo = slNo;
@@ -447,4 +562,4 @@ var js = function (_, Kotlin) {
   main();
   Kotlin.defineModule('js', _);
   return _;
-}(typeof js === 'undefined' ? {} : js, kotlin);
+}(typeof js === 'undefined' ? {} : js, kotlin, this['kotlinx-html-js']);

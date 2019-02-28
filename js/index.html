@@ -112,53 +112,7 @@
                         <th>Temporary Card ID</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <%
-                    float totalWorkedHours = 0;
-                    float totalFunHours = 0;
-                    float netWorkedHours = 0;
-                    for (final SwipeRow swipeRow : swipeRows) {
-
-                    if (swipeRow.getfNetWorkedHours() > 0) {
-                    dates.append(String.format("{ \"date\": \"%s\", \"durs\": %s },", swipeRow.getRequestedDate(),
-                    swipeRow.getfNetWorkedHours()));
-                    }
-
-                    totalWorkedHours += swipeRow.getfWorkedHours();
-                    totalFunHours += swipeRow.getfFunHours();
-                    netWorkedHours += swipeRow.getfNetWorkedHours();
-                    %>
-                    <tr>
-                        <td><%=CU.hyphenIfNull(swipeRow.getSlNo())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getRequestedDate())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getInDate())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getInTime())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getOutDate())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getOutTime())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getWorkedHours())%>
-                        </td>
-                        <td><%=swipeRow.getFunPerc() + "%"%>
-                        </td>
-                        <td><%=swipeRow.getfFunHours()%>
-                        </td>
-                        <td><%=swipeRow.getfNetWorkedHours() %>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getDayStatus())%>
-                        </td>
-                        <td><%=CU.hyphenIfNull(swipeRow.getTemporaryCardId())%>
-                        </td>
-                    </tr>
-                    <%
-                    }
-
-
-                    %>
+                    <tbody id="tbSwipeDetails">
                     </tbody>
                 </table>
 
@@ -323,5 +277,6 @@ function start() {
 </div>
 </body>
 <script src="build/classes/kotlin/main/lib/kotlin.js"></script>
+<script src="build/classes/kotlin/main/lib/kotlinx-html-js.js"></script>
 <script src="build/classes/kotlin/main/js.js"></script>
 </html>
