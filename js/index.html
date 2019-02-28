@@ -38,6 +38,7 @@
                                    type="number"
                                    class="form-control"
                                    id="xp_id"
+                                   value="12345678"
                                    placeholder="Enter your XPlannerID here"
                                    required>
 
@@ -73,7 +74,16 @@
                                   rows="10"
                                   class="form-control"
                                   id="swipe_data"
-                                  required></textarea>
+                                  required>1.	17/02/2019	-	--:--	-	--:--	--:--	Sunday	-
+2.	18/02/2019	-	--:--	-	--:--	--:--	Absent	-
+3.	19/02/2019	19/02/2019	13:51	19/02/2019	19:51	04:31	Present	00013722
+4.	19/02/2019	19/02/2019	09:38	19/02/2019	13:04	03:22	Present	-
+5.	20/02/2019	20/02/2019	09:30	20/02/2019	19:16	08:01	Present	-
+6.	21/02/2019	21/02/2019	09:22	21/02/2019	20:14	08:46	Present	-
+7.	22/02/2019	22/02/2019	09:16	22/02/2019	19:10	07:30	Present	-
+8.	23/02/2019	-	--:--	-	--:--	--:--	Saturday	-
+9.	24/02/2019	-	--:--	-	--:--	--:--	Sunday	-
+10.	25/02/2019	25/02/2019	09:54	25/02/2019	19:37	08:04	Present	-</textarea>
 
                         </div>
                     </div>
@@ -120,85 +130,22 @@
             </div>
         </div>
 
-        <%--Stat--%>
         <div class="row">
             <div class="col-sm-offset-8 col-sm-4">
                 <div class="pull-right">
-                    <p> Total Worked Hours: <b><%=totalWorkedHours%>
-                    </b></p>
-                    <p> Total Fun Hours: <b><%=totalFunHours%>
-                    </b></p>
-                    <p> Net Worked Hours: <b><%=netWorkedHours%>
-                    </b></p>
+                    <p id="pTotalWorkedHours"> </p>
+                    <p id="pTotalFunHours"></p>
+                    <p id="pNetWorkedHours"></p>
                 </div>
             </div>
         </div>
 
-        <%--Script --%>
         <div class="row">
             <div class="col-sm-12">
                 <form class="form-horizontal">
                     <div class="form-group">
                         <label for="taScript" class="control-label">Add Script: </label>
-                        <textarea class="form-control" rows="20" id="taScript">
-                        // load jquery
-var myForm = document.getElementsByName('timelog')[0];
-myForm.onsubmit = function () {
-    var popUpId = 'PopUp' + Math.random();
-    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');
-    this.target = popUpId;
-};
-
-
-var jq = document.createElement('script');
-jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js";
-document.getElementsByTagName('head')[0].appendChild(jq);
-
-var key = setInterval(function () {
-    if (jq) {
-        start();
-        clearInterval(key);
-    }
-}, 1000);
-
-
-function start() {
-
-    // date and duration
-    var dateAndDurs = [ <%=dates.toString()%>];
-
-
-    // find second last row
-    var secondLastRow = $("form[name='timelog'] div#editObject table tbody tr:last").prev();
-
-    // my id
-    var myXPlannerID = <%=xplannerId%>;
-
-    // Selecting user
-    $(secondLastRow).find(":nth-child(6) select").val(myXPlannerID);
-
-
-    // looping through
-    $(dateAndDurs).each(function (index, item) {
-
-        // Set date
-        $(secondLastRow).find(":nth-child(3) input").val(item.date);
-
-        // Set duration
-        $(secondLastRow).find(":nth-child(4) input").val(item.durs);
-
-        console.log('Submitting with ', item);
-
-        // submit
-        $("input[name='submit']").click();
-
-    });
-
-    location.reload();
-
-
-}
-                    </textarea>
+                        <textarea class="form-control" rows="20" id="taScript"></textarea>
                     </div>
                 </form>
             </div>

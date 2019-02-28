@@ -17,6 +17,7 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
   var td = $module$kotlinx_html_js.kotlinx.html.td_vlzo05$;
   var tr = $module$kotlinx_html_js.kotlinx.html.js.tr_9pz0lc$;
   var ensureNotNull = Kotlin.ensureNotNull;
+  var IllegalArgumentException = Kotlin.kotlin.IllegalArgumentException;
   var toString = Kotlin.toString;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var ArrayList_init = Kotlin.kotlin.collections.ArrayList_init_287e2$;
@@ -243,28 +244,43 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
       var swipeData = closure$taSwipeData.value;
       console.log(trimIndent('\n' + '            XPID: ' + xpId + '\n' + '            funPerc : ' + funPerc + '\n' + '            swipeData : ' + swipeData + '\n' + '        '));
       it.preventDefault();
-      closure$firstPage.hidden = true;
-      closure$secondPage.hidden = false;
-      var swipeRows = H2X_getInstance().getSwipeRows_eaqb6n$(xpId, swipeData, funPerc);
-      var dates = StringBuilder_init();
-      if (swipeRows != null) {
-        var tmp$;
-        var tbSwipeRows = document.getElementById('tbSwipeDetails');
-        var totalWorkedHours = 0.0;
-        var totalFunHours = 0.0;
-        var netWorkedHours = 0.0;
-        tmp$ = swipeRows.iterator();
-        while (tmp$.hasNext()) {
-          var swipeRow = tmp$.next();
-          if (swipeRow.getfNetWorkedHours() > 0) {
-            dates.append_gw00v9$('{ ' + '"' + 'date' + '"' + ': ' + '"' + swipeRow.requestedDate + '"' + ', ' + '"' + 'durs' + '"' + ': ' + swipeRow.getfNetWorkedHours() + ' },');
+      try {
+        var swipeRows = H2X_getInstance().getSwipeRows_eaqb6n$(xpId, swipeData, funPerc);
+        var dates = StringBuilder_init();
+        if (swipeRows != null) {
+          var closure$firstPage_0 = closure$firstPage;
+          var closure$secondPage_0 = closure$secondPage;
+          var tmp$, tmp$_0;
+          var tbSwipeRows = document.getElementById('tbSwipeDetails');
+          var totalWorkedHours = 0.0;
+          var totalFunHours = 0.0;
+          var netWorkedHours = 0.0;
+          tmp$ = swipeRows.iterator();
+          while (tmp$.hasNext()) {
+            var swipeRow = tmp$.next();
+            if (swipeRow.getfNetWorkedHours() > 0) {
+              dates.append_gw00v9$('{ ' + '"' + 'date' + '"' + ': ' + '"' + swipeRow.requestedDate + '"' + ', ' + '"' + 'durs' + '"' + ': ' + swipeRow.getfNetWorkedHours() + ' },');
+            }
+            totalWorkedHours += swipeRow.getfWorkedHours();
+            totalFunHours += swipeRow.getfFunHours();
+            netWorkedHours += swipeRow.getfNetWorkedHours();
+            var tr_0 = tr(get_create(document), void 0, main$lambda$lambda$lambda(swipeRow));
+            ensureNotNull(tbSwipeRows).appendChild(tr_0);
           }
-          totalWorkedHours += swipeRow.getfWorkedHours();
-          totalFunHours += swipeRow.getfFunHours();
-          netWorkedHours += swipeRow.getfNetWorkedHours();
-          var tr_0 = tr(get_create(document), void 0, main$lambda$lambda$lambda(swipeRow));
-          ensureNotNull(tbSwipeRows).appendChild(tr_0);
+          ensureNotNull(document.getElementById('pTotalWorkedHours')).innerHTML = 'Total Worked Hours: <b>' + totalWorkedHours + '<\/b>';
+          ensureNotNull(document.getElementById('pTotalFunHours')).innerHTML = 'Total Fun Hours: <b>' + totalFunHours + '<\/b>';
+          ensureNotNull(document.getElementById('pNetWorkedHours')).innerHTML = 'Net Worked Hours: <b>' + netWorkedHours + '<\/b>';
+          (Kotlin.isType(tmp$_0 = document.getElementById('taScript'), HTMLTextAreaElement) ? tmp$_0 : throwCCE()).value = getAddScript(dates.toString(), xpId);
+          closure$firstPage_0.hidden = true;
+          closure$secondPage_0.hidden = false;
         }
+      }
+       catch (e) {
+        if (Kotlin.isType(e, IllegalArgumentException)) {
+          window.alert(ensureNotNull(e.message));
+        }
+         else
+          throw e;
       }
       return Unit;
     };
@@ -281,6 +297,9 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
     var taSwipeData = Kotlin.isType(tmp$_3 = document.getElementById('swipe_data'), HTMLTextAreaElement) ? tmp$_3 : throwCCE();
     var fh2x = Kotlin.isType(tmp$_4 = document.getElementById('fh2x'), HTMLFormElement) ? tmp$_4 : throwCCE();
     fh2x.addEventListener('submit', main$lambda(iXpId, iFunPerc, taSwipeData, firstPage, secondPage));
+  }
+  function getAddScript(dates, xpId) {
+    return '\n' + '        // load jquery' + '\n' + "var myForm = document.getElementsByName('timelog')[0];" + '\n' + 'myForm.onsubmit = function () {' + '\n' + "    var popUpId = 'PopUp' + Math.random();" + '\n' + "    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');" + '\n' + '    this.target = popUpId;' + '\n' + '};' + '\n' + '\n' + '\n' + "var jq = document.createElement('script');" + '\n' + 'jq.src = ' + '"' + 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' + '"' + ';' + '\n' + "document.getElementsByTagName('head')[0].appendChild(jq);" + '\n' + '\n' + 'var key = setInterval(function () {' + '\n' + '    if (jq) {' + '\n' + '        start();' + '\n' + '        clearInterval(key);' + '\n' + '    }' + '\n' + '}, 1000);' + '\n' + '\n' + '\n' + 'function start() {' + '\n' + '\n' + '    // date and duration' + '\n' + '    var dateAndDurs = [ ' + dates + '];' + '\n' + '\n' + '\n' + '    // find second last row' + '\n' + '    var secondLastRow = ' + String.fromCharCode(36) + '(' + '"' + "form[name='timelog'] div#editObject table tbody tr:last" + '"' + ').prev();' + '\n' + '\n' + '    // my id' + '\n' + '    var myXPlannerID = ' + xpId + ';' + '\n' + '\n' + '    // Selecting user' + '\n' + '    ' + String.fromCharCode(36) + '(secondLastRow).find(' + '"' + ':nth-child(6) select' + '"' + ').val(myXPlannerID);' + '\n' + '\n' + '\n' + '    // looping through' + '\n' + '    ' + String.fromCharCode(36) + '(dateAndDurs).each(function (index, item) {' + '\n' + '\n' + '        // Set date' + '\n' + '        ' + String.fromCharCode(36) + '(secondLastRow).find(' + '"' + ':nth-child(3) input' + '"' + ').val(item.date);' + '\n' + '\n' + '        // Set duration' + '\n' + '        ' + String.fromCharCode(36) + '(secondLastRow).find(' + '"' + ':nth-child(4) input' + '"' + ').val(item.durs);' + '\n' + '\n' + "        console.log('Submitting with ', item);" + '\n' + '\n' + '        // submit' + '\n' + '        ' + String.fromCharCode(36) + '(' + '"' + "input[name='submit']" + '"' + ').click();' + '\n' + '\n' + '    });' + '\n' + '\n' + '    location.reload();' + '\n' + '\n' + '\n' + '}' + '\n' + '\n' + '    ';
   }
   function SwipeRow(slNo, requestedDate, dayStatus, inDate, inTime, outDate, outTime, workedHours, temporaryCardId, funPerc) {
     this.slNo = slNo;
@@ -555,6 +574,7 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
     get: H2X_getInstance
   });
   _.main = main;
+  _.getAddScript_puj7f4$ = getAddScript;
   _.SwipeRow = SwipeRow;
   Object.defineProperty(_, 'SwipeRowUtils', {
     get: SwipeRowUtils_getInstance
