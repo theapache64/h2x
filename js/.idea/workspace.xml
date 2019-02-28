@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="732a6d73-f418-49d3-8157-9092d4123438" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/js.meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/js.meta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/js/root-package.kjsm" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/js/root-package.kjsm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Index.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Index.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jsp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp/.idea/workspace.xml" afterDir="false" />
@@ -29,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/Index.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
+            <state relative-caret-position="105">
+              <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
               <folding>
                 <element signature="e#0#187#0" expanded="true" />
               </folding>
@@ -59,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+            <state relative-caret-position="187">
+              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
             </state>
           </provider>
         </entry>
@@ -266,12 +262,12 @@
       <option name="presentableId" value="Default" />
       <updated>1551282130589</updated>
       <workItem from="1551282132122" duration="2288000" />
-      <workItem from="1551286825306" duration="5285000" />
+      <workItem from="1551286825306" duration="5493000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7573000" />
+    <option name="totallyTimeSpent" value="7781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="4" />
@@ -349,8 +345,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/Index.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="90" column="84" selection-start-line="90" selection-start-column="84" selection-end-line="90" selection-end-column="84" />
+        <state relative-caret-position="105">
+          <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
           <folding>
             <element signature="e#0#187#0" expanded="true" />
           </folding>
@@ -359,8 +355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+        <state relative-caret-position="187">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>

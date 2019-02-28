@@ -250,7 +250,7 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
         if (swipeRows != null) {
           var closure$firstPage_0 = closure$firstPage;
           var closure$secondPage_0 = closure$secondPage;
-          var tmp$, tmp$_0;
+          var tmp$, tmp$_0, tmp$_1;
           var tbSwipeRows = document.getElementById('tbSwipeDetails');
           var totalWorkedHours = 0.0;
           var totalFunHours = 0.0;
@@ -271,6 +271,7 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
           ensureNotNull(document.getElementById('pTotalFunHours')).innerHTML = 'Total Fun Hours: <b>' + totalFunHours + '<\/b>';
           ensureNotNull(document.getElementById('pNetWorkedHours')).innerHTML = 'Net Worked Hours: <b>' + netWorkedHours + '<\/b>';
           (Kotlin.isType(tmp$_0 = document.getElementById('taScript'), HTMLTextAreaElement) ? tmp$_0 : throwCCE()).value = getAddScript(dates.toString(), xpId);
+          (Kotlin.isType(tmp$_1 = document.getElementById('dScript'), HTMLTextAreaElement) ? tmp$_1 : throwCCE()).value = getDeleteScript(dates.toString(), xpId);
           closure$firstPage_0.hidden = true;
           closure$secondPage_0.hidden = false;
         }
@@ -297,6 +298,9 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
     var taSwipeData = Kotlin.isType(tmp$_3 = document.getElementById('swipe_data'), HTMLTextAreaElement) ? tmp$_3 : throwCCE();
     var fh2x = Kotlin.isType(tmp$_4 = document.getElementById('fh2x'), HTMLFormElement) ? tmp$_4 : throwCCE();
     fh2x.addEventListener('submit', main$lambda(iXpId, iFunPerc, taSwipeData, firstPage, secondPage));
+  }
+  function getDeleteScript(dates, xpId) {
+    return '\n' + '        // load jquery' + '\n' + '\n' + "var myForm = document.getElementsByName('timelog')[0];" + '\n' + 'myForm.onsubmit = function () {' + '\n' + "    var popUpId = 'PopUp' + Math.random();" + '\n' + "    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');" + '\n' + '    this.target = popUpId;' + '\n' + '};' + '\n' + '\n' + '\n' + "var jq = document.createElement('script');" + '\n' + 'jq.src = ' + '"' + 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' + '"' + ';' + '\n' + "document.getElementsByTagName('head')[0].appendChild(jq);" + '\n' + '\n' + 'var key = setInterval(function () {' + '\n' + '    if (jq) {' + '\n' + '        start();' + '\n' + '        clearInterval(key);' + '\n' + '    }' + '\n' + '}, 1000);' + '\n' + '\n' + '\n' + 'function start() {' + '\n' + '\n' + '      // date and duration' + '\n' + '  var dateAndDurs = [' + '\n' + '    ' + dates + '\n' + '  ];' + '\n' + '\n' + '    // my id' + '\n' + '    var myXPlannerID = ' + xpId + '\n' + '\n' + '\n' + '    ' + String.fromCharCode(36) + '(' + '"' + "form[name='timelog'] div#editObject table tbody tr" + '"' + ').each(function (index, item) {' + '\n' + '\n' + '        var iReportedDate = ' + String.fromCharCode(36) + "(item).find('td:nth-child(3) input');" + '\n' + '                        var iPerson1 = ' + String.fromCharCode(36) + "(item).find('td:nth-child(6) select');" + '\n' + '\n' + '        var repDate = ' + String.fromCharCode(36) + '(iReportedDate).val();' + '\n' + '                        var personId = parseInt(' + String.fromCharCode(36) + '(iPerson1).val());' + '\n' + '\n' + '        // looping each date' + '\n' + '        ' + String.fromCharCode(36) + '(dateAndDurs).each(function (index, item2) {' + '\n' + '            if (repDate === item2.date && personId=== myXPlannerID) {' + '\n' + '                ' + String.fromCharCode(36) + '(item).find(' + '"' + "input[type='checkbox']" + '"' + ").attr('checked', true);" + '\n' + '            }' + '\n' + '        });' + '\n' + '\n' + '\n' + '    });' + '\n' + '\n' + '    // submit' + '\n' + '    ' + String.fromCharCode(36) + '(' + '"' + "input[name='submit']" + '"' + ').click();' + '\n' + '\n' + '\n' + '}' + '\n' + '    ';
   }
   function getAddScript(dates, xpId) {
     return '\n' + '        // load jquery' + '\n' + "var myForm = document.getElementsByName('timelog')[0];" + '\n' + 'myForm.onsubmit = function () {' + '\n' + "    var popUpId = 'PopUp' + Math.random();" + '\n' + "    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');" + '\n' + '    this.target = popUpId;' + '\n' + '};' + '\n' + '\n' + '\n' + "var jq = document.createElement('script');" + '\n' + 'jq.src = ' + '"' + 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' + '"' + ';' + '\n' + "document.getElementsByTagName('head')[0].appendChild(jq);" + '\n' + '\n' + 'var key = setInterval(function () {' + '\n' + '    if (jq) {' + '\n' + '        start();' + '\n' + '        clearInterval(key);' + '\n' + '    }' + '\n' + '}, 1000);' + '\n' + '\n' + '\n' + 'function start() {' + '\n' + '\n' + '    // date and duration' + '\n' + '    var dateAndDurs = [ ' + dates + '];' + '\n' + '\n' + '\n' + '    // find second last row' + '\n' + '    var secondLastRow = ' + String.fromCharCode(36) + '(' + '"' + "form[name='timelog'] div#editObject table tbody tr:last" + '"' + ').prev();' + '\n' + '\n' + '    // my id' + '\n' + '    var myXPlannerID = ' + xpId + ';' + '\n' + '\n' + '    // Selecting user' + '\n' + '    ' + String.fromCharCode(36) + '(secondLastRow).find(' + '"' + ':nth-child(6) select' + '"' + ').val(myXPlannerID);' + '\n' + '\n' + '\n' + '    // looping through' + '\n' + '    ' + String.fromCharCode(36) + '(dateAndDurs).each(function (index, item) {' + '\n' + '\n' + '        // Set date' + '\n' + '        ' + String.fromCharCode(36) + '(secondLastRow).find(' + '"' + ':nth-child(3) input' + '"' + ').val(item.date);' + '\n' + '\n' + '        // Set duration' + '\n' + '        ' + String.fromCharCode(36) + '(secondLastRow).find(' + '"' + ':nth-child(4) input' + '"' + ').val(item.durs);' + '\n' + '\n' + "        console.log('Submitting with ', item);" + '\n' + '\n' + '        // submit' + '\n' + '        ' + String.fromCharCode(36) + '(' + '"' + "input[name='submit']" + '"' + ').click();' + '\n' + '\n' + '    });' + '\n' + '\n' + '    location.reload();' + '\n' + '\n' + '\n' + '}' + '\n' + '\n' + '    ';
@@ -574,6 +578,7 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
     get: H2X_getInstance
   });
   _.main = main;
+  _.getDeleteScript_puj7f4$ = getDeleteScript;
   _.getAddScript_puj7f4$ = getAddScript;
   _.SwipeRow = SwipeRow;
   Object.defineProperty(_, 'SwipeRowUtils', {
