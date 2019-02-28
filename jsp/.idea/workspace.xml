@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0ab529ec-0997-4e5a-90f5-b4506a7a1b3b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../js/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../js/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -359,12 +358,12 @@
       <workItem from="1551275146151" duration="142000" />
       <workItem from="1551282528959" duration="1802000" />
       <workItem from="1551286726505" duration="93000" />
-      <workItem from="1551286925384" duration="4895000" />
+      <workItem from="1551286925384" duration="5106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34281000" />
+    <option name="totallyTimeSpent" value="34492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -374,7 +373,7 @@
       <window_info id="UI Designer" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Web" order="3" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="4" weight="0.28446215" />
+      <window_info active="true" content_ui="combo" id="Project" order="4" visible="true" weight="0.28446215" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
