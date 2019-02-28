@@ -8,11 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ab529ec-0997-4e5a-90f5-b4506a7a1b3b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../js/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../js/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js.meta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js/root-package.kjsm" beforeDir="false" afterPath="$PROJECT_DIR$/../js/build/classes/kotlin/main/js/root-package.kjsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../js/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../js/src/main/kotlin/Index.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../js/src/main/kotlin/Index.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -363,12 +359,12 @@
       <workItem from="1551275146151" duration="142000" />
       <workItem from="1551282528959" duration="1802000" />
       <workItem from="1551286726505" duration="93000" />
-      <workItem from="1551286925384" duration="4784000" />
+      <workItem from="1551286925384" duration="4895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34170000" />
+    <option name="totallyTimeSpent" value="34281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
