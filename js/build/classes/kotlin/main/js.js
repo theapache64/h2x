@@ -10,10 +10,10 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
   var unboxChar = Kotlin.unboxChar;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var throwCCE = Kotlin.throwCCE;
+  var Unit = Kotlin.kotlin.Unit;
   var trimIndent = Kotlin.kotlin.text.trimIndent_pdl1vz$;
   var StringBuilder_init = Kotlin.kotlin.text.StringBuilder_init;
   var get_create = $module$kotlinx_html_js.kotlinx.html.dom.get_create_4wc2mh$;
-  var Unit = Kotlin.kotlin.Unit;
   var td = $module$kotlinx_html_js.kotlinx.html.td_vlzo05$;
   var tr = $module$kotlinx_html_js.kotlinx.html.js.tr_9pz0lc$;
   var ensureNotNull = Kotlin.ensureNotNull;
@@ -148,6 +148,13 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
     }
     return H2X_instance;
   }
+  function main$lambda(closure$firstPage, closure$secondPage) {
+    return function (it) {
+      closure$firstPage.hidden = false;
+      closure$secondPage.hidden = true;
+      return Unit;
+    };
+  }
   function main$lambda$lambda$lambda$lambda(closure$swipeRow) {
     return function ($receiver) {
       $receiver.unaryPlus_pdl1vz$(CU_getInstance().hyphenIfNull_pdl1vj$(closure$swipeRow.slNo));
@@ -237,7 +244,7 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
       return Unit;
     };
   }
-  function main$lambda(closure$iXpId, closure$iFunPerc, closure$taSwipeData, closure$firstPage, closure$secondPage) {
+  function main$lambda_0(closure$iXpId, closure$iFunPerc, closure$taSwipeData, closure$firstPage, closure$secondPage) {
     return function (it) {
       var xpId = closure$iXpId.value;
       var funPerc = closure$iFunPerc.value;
@@ -287,17 +294,19 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
     };
   }
   function main() {
-    var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4;
+    var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4, tmp$_5;
     println('Hello World');
     var firstPage = Kotlin.isType(tmp$ = document.getElementById('firstPage'), HTMLDivElement) ? tmp$ : throwCCE();
     var secondPage = Kotlin.isType(tmp$_0 = document.getElementById('secondPage'), HTMLDivElement) ? tmp$_0 : throwCCE();
     firstPage.hidden = false;
     secondPage.hidden = true;
-    var iXpId = Kotlin.isType(tmp$_1 = document.getElementById('xp_id'), HTMLInputElement) ? tmp$_1 : throwCCE();
-    var iFunPerc = Kotlin.isType(tmp$_2 = document.getElementById('fun_perc'), HTMLInputElement) ? tmp$_2 : throwCCE();
-    var taSwipeData = Kotlin.isType(tmp$_3 = document.getElementById('swipe_data'), HTMLTextAreaElement) ? tmp$_3 : throwCCE();
-    var fh2x = Kotlin.isType(tmp$_4 = document.getElementById('fh2x'), HTMLFormElement) ? tmp$_4 : throwCCE();
-    fh2x.addEventListener('submit', main$lambda(iXpId, iFunPerc, taSwipeData, firstPage, secondPage));
+    var aHome = Kotlin.isType(tmp$_1 = document.getElementById('aHome'), HTMLAnchorElement) ? tmp$_1 : throwCCE();
+    aHome.addEventListener('click', main$lambda(firstPage, secondPage));
+    var iXpId = Kotlin.isType(tmp$_2 = document.getElementById('xp_id'), HTMLInputElement) ? tmp$_2 : throwCCE();
+    var iFunPerc = Kotlin.isType(tmp$_3 = document.getElementById('fun_perc'), HTMLInputElement) ? tmp$_3 : throwCCE();
+    var taSwipeData = Kotlin.isType(tmp$_4 = document.getElementById('swipe_data'), HTMLTextAreaElement) ? tmp$_4 : throwCCE();
+    var fh2x = Kotlin.isType(tmp$_5 = document.getElementById('fh2x'), HTMLFormElement) ? tmp$_5 : throwCCE();
+    fh2x.addEventListener('submit', main$lambda_0(iXpId, iFunPerc, taSwipeData, firstPage, secondPage));
   }
   function getDeleteScript(dates, xpId) {
     return '\n' + '        // load jquery' + '\n' + '\n' + "var myForm = document.getElementsByName('timelog')[0];" + '\n' + 'myForm.onsubmit = function () {' + '\n' + "    var popUpId = 'PopUp' + Math.random();" + '\n' + "    var w = window.open('', popUpId, 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');" + '\n' + '    this.target = popUpId;' + '\n' + '};' + '\n' + '\n' + '\n' + "var jq = document.createElement('script');" + '\n' + 'jq.src = ' + '"' + 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' + '"' + ';' + '\n' + "document.getElementsByTagName('head')[0].appendChild(jq);" + '\n' + '\n' + 'var key = setInterval(function () {' + '\n' + '    if (jq) {' + '\n' + '        start();' + '\n' + '        clearInterval(key);' + '\n' + '    }' + '\n' + '}, 1000);' + '\n' + '\n' + '\n' + 'function start() {' + '\n' + '\n' + '      // date and duration' + '\n' + '  var dateAndDurs = [' + '\n' + '    ' + dates + '\n' + '  ];' + '\n' + '\n' + '    // my id' + '\n' + '    var myXPlannerID = ' + xpId + '\n' + '\n' + '\n' + '    ' + String.fromCharCode(36) + '(' + '"' + "form[name='timelog'] div#editObject table tbody tr" + '"' + ').each(function (index, item) {' + '\n' + '\n' + '        var iReportedDate = ' + String.fromCharCode(36) + "(item).find('td:nth-child(3) input');" + '\n' + '                        var iPerson1 = ' + String.fromCharCode(36) + "(item).find('td:nth-child(6) select');" + '\n' + '\n' + '        var repDate = ' + String.fromCharCode(36) + '(iReportedDate).val();' + '\n' + '                        var personId = parseInt(' + String.fromCharCode(36) + '(iPerson1).val());' + '\n' + '\n' + '        // looping each date' + '\n' + '        ' + String.fromCharCode(36) + '(dateAndDurs).each(function (index, item2) {' + '\n' + '            if (repDate === item2.date && personId=== myXPlannerID) {' + '\n' + '                ' + String.fromCharCode(36) + '(item).find(' + '"' + "input[type='checkbox']" + '"' + ").attr('checked', true);" + '\n' + '            }' + '\n' + '        });' + '\n' + '\n' + '\n' + '    });' + '\n' + '\n' + '    // submit' + '\n' + '    ' + String.fromCharCode(36) + '(' + '"' + "input[name='submit']" + '"' + ').click();' + '\n' + '\n' + '\n' + '}' + '\n' + '    ';

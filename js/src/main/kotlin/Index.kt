@@ -15,6 +15,13 @@ fun main() {
     firstPage.hidden = false
     secondPage.hidden = true
 
+    // Setting home click listener
+    val aHome = document.getElementById("aHome") as HTMLAnchorElement
+    aHome.addEventListener("click",{
+        firstPage.hidden = false
+        secondPage.hidden = true
+    })
+
     // First page
     val iXpId = document.getElementById("xp_id") as HTMLInputElement
     val iFunPerc = document.getElementById("fun_perc") as HTMLInputElement
