@@ -17,7 +17,7 @@ fun main() {
 
     // Setting home click listener
     val aHome = document.getElementById("aHome") as HTMLAnchorElement
-    aHome.addEventListener("click",{
+    aHome.addEventListener("click", {
         firstPage.hidden = false
         secondPage.hidden = true
     })
@@ -79,8 +79,8 @@ fun main() {
                         td { +CU.hyphenIfNull(swipeRow.outTime) }
                         td { +CU.hyphenIfNull(swipeRow.workedHours) }
                         td { +"${swipeRow.funPerc}%" }
-                        td { +swipeRow.getfFunHours() }
-                        td { +swipeRow.getfNetWorkedHours() }
+                        td { +"${swipeRow.getfFunHours()}" }
+                        td { +"${swipeRow.getfNetWorkedHours()}" }
                         td { +CU.hyphenIfNull(swipeRow.dayStatus) }
                         td { +CU.hyphenIfNull(swipeRow.temporaryCardId) }
                     }

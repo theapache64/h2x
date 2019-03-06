@@ -205,13 +205,13 @@ var js = function (_, Kotlin, $module$kotlinx_html_js) {
   }
   function main$lambda$lambda$lambda$lambda_7(closure$swipeRow) {
     return function ($receiver) {
-      +closure$swipeRow.getfFunHours();
+      $receiver.unaryPlus_pdl1vz$(closure$swipeRow.getfFunHours().toString());
       return Unit;
     };
   }
   function main$lambda$lambda$lambda$lambda_8(closure$swipeRow) {
     return function ($receiver) {
-      +closure$swipeRow.getfNetWorkedHours();
+      $receiver.unaryPlus_pdl1vz$(closure$swipeRow.getfNetWorkedHours().toString());
       return Unit;
     };
   }
