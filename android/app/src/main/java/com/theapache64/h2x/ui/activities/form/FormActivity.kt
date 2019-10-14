@@ -8,17 +8,18 @@ import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.google.android.material.snackbar.Snackbar
 import com.theapache64.h2x.R
 import com.theapache64.h2x.databinding.ActivityFormBinding
-
 import com.theapache64.h2x.ui.activities.login.LogInActivity
+import com.theapache64.h2x.ui.adapters.formitems.FormItemsAdapter
+import com.theapache64.h2x.ui.adapters.formitems.FormItemsCallback
 import com.theapache64.twinkill.ui.activities.base.BaseAppCompatActivity
 import com.theapache64.twinkill.utils.extensions.bindContentView
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class FormActivity : BaseAppCompatActivity(), FormHandler {
+class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
+
 
     @Inject
     lateinit var factory: ViewModelProvider.Factory
@@ -35,22 +36,24 @@ class FormActivity : BaseAppCompatActivity(), FormHandler {
         binding.viewModel = viewModel
         binding.handler = this
 
-        
-// Watching logout
-viewModel.getLoggedOut().observe(this, Observer { isLoggedOut ->
+        val formItemsAdapter = FormItemsAdapter(
+            this,
+            viewModel.getFormItems()
+            , this
+        )
 
-    if (isLoggedOut) {
-        startActivity(LogInActivity.getStartIntent(this))
-        finish()
-    }
-
-})
+        binding.iContentForm.rvFormItems.adapter = formItemsAdapter
 
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        // Watching logout
+        viewModel.getLoggedOut().observe(this, Observer { isLoggedOut ->
+
+            if (isLoggedOut) {
+                startActivity(LogInActivity.getStartIntent(this))
+                finish()
+            }
+
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -64,18 +67,31 @@ viewModel.getLoggedOut().observe(this, Observer { isLoggedOut ->
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-                R.id.action_logout -> {
+            R.id.action_logout -> {
 
-    val dialog = getConfirmDialog(R.string.title_confirm, R.string.message_logout_confirm) {
-        viewModel.logout()
-    }
+                val dialog =
+                    getConfirmDialog(R.string.title_confirm, R.string.message_logout_confirm) {
+                        viewModel.logout()
+                    }
 
-    dialog.show()
+                dialog.show()
 
-    true
-}
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onDeleteClicked(position: Int) {
+        viewModel.onDeleteClicked(position)
+    }
+
+    override fun onSetFromDateClicked(position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onSetToDateClicked(position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {

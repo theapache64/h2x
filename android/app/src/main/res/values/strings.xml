@@ -11,5 +11,8 @@
 <string name="title_confirm">Confirm</string>
 <string name="message_logout_confirm">Do you really want to logout ?</string>
     <string name="hint_email">Enter your official email</string>
+    <string name="action_set_from_date">SET FROM DATE</string>
+    <string name="action_set_to_date">SET TO DATE</string>
+    <string name="hint_project_name">Project Name</string>
 
 </resources>

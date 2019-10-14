@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
-            type="com.theapache64.h2x.ui.activities.form.FormViewModel"/>
+            type="com.theapache64.h2x.ui.activities.form.FormViewModel" />
+
         <variable
             name="handler"
-            type="com.theapache64.h2x.ui.activities.form.FormHandler"/>
+            type="com.theapache64.h2x.ui.activities.form.FormHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,14 +21,31 @@
         tools:context=".ui.activities.form.FormActivity"
         tools:showIn="@layout/activity_form">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
+        <!--Form Items-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_form_items"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/cl_payment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_form_item" />
+
+        <!--Payment Section-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_payment"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_red_dark"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_form_items">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

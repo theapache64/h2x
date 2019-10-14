@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="callback"
+            type="com.theapache64.h2x.ui.adapters.formitems.FormItemsCallback" />
+
+        <variable
+            name="formItem"
+            type="com.theapache64.h2x.models.FormItem" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--Section name-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="4dp"
+                    android:text="@{`Section `+ (position+1)}" />
+
+                <!--Delete-->
+                <ImageButton
+                    android:id="@+id/ib_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:onClick="@{()->callback.onDeleteClicked(position)}"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_delete_black_24dp"
+                    android:tint="@color/grey_800" />
+            </FrameLayout>
+
+            <!--From Date-->
+            <Button
+                android:id="@+id/b_set_from_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->callback.onSetFromDateClicked(position)}"
+                android:text="@{formItem.fromDate==null ? @string/action_set_from_date : formItem.fromDate.toString()}" />
+
+            <!--To Date-->
+            <Button
+                android:id="@+id/b_set_to_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->callback.onSetToDateClicked(position)}"
+                android:text="@{formItem.fromDate==null ? @string/action_set_to_date : formItem.toDate.toString()}" />
+
+            <!--Project Name-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_project_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="@string/hint_project_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:text="@={formItem.projectName}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
