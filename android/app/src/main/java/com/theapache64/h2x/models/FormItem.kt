@@ -9,6 +9,7 @@ class FormItem(
     var toDate: Date? = null,
     var projectName: String? = null
 ) : Serializable {
+
     fun getFromDateFormatted(): String? {
         return DateUtils.formatDateAndMonth(fromDate!!)
     }

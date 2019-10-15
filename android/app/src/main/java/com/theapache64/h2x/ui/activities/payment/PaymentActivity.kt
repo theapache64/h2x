@@ -40,7 +40,6 @@ class PaymentActivity : BaseAppCompatActivity(), PaymentHandler {
     }
 
 
-    private lateinit var formItems: java.util.ArrayList<FormItem>
     @Inject
     lateinit var factory: ViewModelProvider.Factory
 
@@ -59,10 +58,11 @@ class PaymentActivity : BaseAppCompatActivity(), PaymentHandler {
         binding.handler = this
         binding.viewModel = viewModel
 
-        this.formItems = intent.getSerializableExtra(KEY_FORM_ITEMS) as ArrayList<FormItem>
+        val iContentPayment = binding.iContentPayment
+
+        val formItems = intent.getSerializableExtra(KEY_FORM_ITEMS) as ArrayList<FormItem>
 
         viewModel.getPrefs().observe(this, Observer {
-            val iContentPayment = binding.iContentPayment
             when (it.status) {
                 Resource.Status.LOADING -> {
                     iContentPayment.mcvPayment.visibility = View.GONE
@@ -83,12 +83,38 @@ class PaymentActivity : BaseAppCompatActivity(), PaymentHandler {
             }
         })
 
+        viewModel.getPlaceOrderResponse().observe(this, Observer {
+            when (it.status) {
+
+                Resource.Status.LOADING -> {
+                    iContentPayment.mcvPayment.visibility = View.GONE
+                    iContentPayment.lvPrefs.showLoading(R.string.loading_placing_order)
+                }
+                Resource.Status.SUCCESS -> {
+                    showAlertDialog(
+                        R.string.title_payment_success,
+                        R.string.message_payment_success
+                    ) {
+                        finish()
+                    }
+                }
+                Resource.Status.ERROR -> {
+                    showAlertDialog(
+                        R.string.title_order_failed,
+                        getString(R.string.message_order_failed, it.message!!)
+                    ) {
+
+                    }
+                }
+            }
+        })
+
 
         viewModel.loadPrefs()
     }
 
     override fun onPayClicked() {
-        OpenUPI.newTransaction(viewModel.totalPayable.get())
+        OpenUPI.newTransaction(viewModel.totalPayable.get().toFloat())
             .start(this)
     }
 
@@ -96,7 +122,7 @@ class PaymentActivity : BaseAppCompatActivity(), PaymentHandler {
         super.onActivityResult(requestCode, resultCode, data)
 
         OpenUPI.handleActivityResult(
-            viewModel.totalPayable.get(),
+            viewModel.totalPayable.get().toFloat(),
             requestCode,
             resultCode,
             data,
@@ -105,7 +131,7 @@ class PaymentActivity : BaseAppCompatActivity(), PaymentHandler {
                     showAlertDialog(
                         R.string.title_payment_failed,
                         message
-                    )
+                    ) {}
                 }
 
                 override fun onSubmitted(transactionResult: TransactionResult) {
@@ -118,12 +144,7 @@ class PaymentActivity : BaseAppCompatActivity(), PaymentHandler {
                 }
 
                 override fun onSuccess(transactionResult: TransactionResult) {
-                    showAlertDialog(
-                        R.string.title_payment_success,
-                        R.string.message_payment_success
-                    ) {
-                        finish()
-                    }
+                    viewModel.placeOrder(transactionResult)
                 }
 
             })

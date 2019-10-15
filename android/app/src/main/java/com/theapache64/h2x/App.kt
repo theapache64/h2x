@@ -2,6 +2,7 @@ package com.theapache64.h2x
 
 import android.app.Activity
 import android.app.Application
+import com.theah64.safemail.SafeMail
 import com.theapache64.h2x.data.repositories.UserPrefRepository
 import com.theapache64.h2x.di.components.DaggerAppComponent
 import com.theapache64.openupi.OpenUPI
@@ -48,9 +49,11 @@ class App : Application(), HasActivityInjector {
         )
 
         OpenUPI.init(
-            "8301893919@ybl",
-            "Shifar"
+            "theapache64@oksbi",
+            "theapache64"
         )
+
+        SafeMail.init("NK7OE9RvSr")
 
     }
 

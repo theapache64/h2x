@@ -80,6 +80,9 @@ dependencies {
     // OpenUPI
     implementation "com.theapache64.open-upi:open-upi:1.0.0-alpha01"
 
+    // SafeMail
+    implementation 'com.theah64.safemail:safemail:1.0.1'
+
     // Test
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
