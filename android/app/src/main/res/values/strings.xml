@@ -29,5 +29,12 @@
     <string name="label_sections">Sections</string>
     <string name="label_per_section">Per Section</string>
     <string name="label_total_payable">Total Payable</string>
+    <string name="trans_submitted">Submitted</string>
+    <string name="message_success">Success!</string>
+    <string name="title_payment_success">Payment Success</string>
+    <string name="message_payment_success">We\'ve received your payment. Our representative will do the follow up. \\n\\Thank your for choosing h2x</string>
+    <string name="title_payment_submitted">Payment Submitted</string>
+    <string name="message_payment_submitted">The payment has been submitted by your UPI client, but the money didn\'t reach in our account. Let\'s wait for a while. \\n\\nThank you</string>
+    <string name="title_payment_failed">Payment Failed</string>
 
 </resources>

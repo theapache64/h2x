@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -75,6 +76,9 @@ dependencies {
 
     // Date Picker
     implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
+    // OpenUPI
+    implementation "com.theapache64.open-upi:open-upi:1.0.0-alpha01"
 
     // Test
     testImplementation "junit:junit:$junit_version"
