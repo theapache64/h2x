@@ -17,5 +17,17 @@
     <string name="error_delete_form_item_empty">Item list can\'t be empty</string>
     <string name="action_add_form_item">Add Form Item</string>
     <string name="error_delete_form_item_index">You\'re fast :|</string>
+    <string name="error_date_from_first">Please select from date first</string>
+    <string name="label_to">to</string>
+    <string name="label_from">from</string>
+    <string name="title_activity_payment">Payment</string>
+    <string name="action_next">NEXT</string>
+    <string name="label_total_days">Total Days</string>
+    <string name="loading">Loading...</string>
+    <string name="colon">:</string>
+    <string name="label_per_day">Per Day</string>
+    <string name="label_sections">Sections</string>
+    <string name="label_per_section">Per Section</string>
+    <string name="label_total_payable">Total Payable</string>
 
 </resources>

@@ -41,36 +41,64 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="4dp"
                     android:layout_marginLeft="4dp"
-                    android:text="@{`# `+ (position+1)}" />
+                    android:text="@{`# `+ (position+1) + formItem.getDaysCount() }"
+                    android:textSize="12sp" />
 
                 <!--Delete-->
                 <ImageButton
                     android:id="@+id/ib_delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:background="?android:attr/selectableItemBackground"
                     android:onClick="@{()->callback.onDeleteClicked(position)}"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_delete_black_24dp"
-                    android:tint="@color/grey_800" />
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_delete_white"
+                    android:tint="@color/grey_400" />
             </FrameLayout>
 
-            <!--From Date-->
-            <Button
-                android:id="@+id/b_set_from_date"
+            <!--Label From and Two-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->callback.onSetFromDateClicked(position)}"
-                android:text="@{formItem.fromDate==null ? @string/action_set_from_date : formItem.fromDate.toString()}" />
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-            <!--To Date-->
-            <Button
-                android:id="@+id/b_set_to_date"
+                <!--From Date-->
+                <TextView
+                    style="@style/dateLabelStyle"
+                    android:text="@string/label_from" />
+
+                <!--To Date-->
+                <TextView
+                    style="@style/dateLabelStyle"
+                    android:text="@string/label_to" />
+
+            </LinearLayout>
+
+            <!--Set From Date and Set To Date-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{()->callback.onSetToDateClicked(position)}"
-                android:text="@{formItem.fromDate==null ? @string/action_set_to_date : formItem.toDate.toString()}" />
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!--From Date-->
+                <Button
+                    android:id="@+id/b_set_from_date"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.DateButton"
+                    android:onClick="@{()->callback.onSetFromDateClicked(position)}"
+                    android:text="@{formItem.fromDate==null ? @string/action_set_from_date : formItem.getFromDateFormatted()}" />
+
+                <!--To Date-->
+                <Button
+                    android:id="@+id/b_set_to_date"
+                    style="@style/Widget.MaterialComponents.Button.TextButton.DateButton"
+                    android:onClick="@{()->callback.onSetToDateClicked(position)}"
+                    android:text="@{formItem.toDate==null ? @string/action_set_to_date : formItem.getToDateFormatted()}" />
+
+
+            </LinearLayout>
 
             <!--Project Name-->
             <com.google.android.material.textfield.TextInputLayout

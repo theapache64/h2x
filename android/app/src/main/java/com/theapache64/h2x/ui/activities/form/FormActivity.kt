@@ -12,11 +12,14 @@ import com.google.android.material.snackbar.Snackbar
 import com.theapache64.h2x.R
 import com.theapache64.h2x.databinding.ActivityFormBinding
 import com.theapache64.h2x.ui.activities.login.LogInActivity
+import com.theapache64.h2x.ui.activities.payment.PaymentActivity
 import com.theapache64.h2x.ui.adapters.formitems.FormItemsAdapter
 import com.theapache64.h2x.ui.adapters.formitems.FormItemsCallback
 import com.theapache64.twinkill.ui.activities.base.BaseAppCompatActivity
 import com.theapache64.twinkill.utils.extensions.bindContentView
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import dagger.android.AndroidInjection
+import java.util.*
 import javax.inject.Inject
 
 class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
@@ -59,8 +62,24 @@ class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
 
         // Watching for any SnackBar error
         viewModel.getSnackBarMessage().observe(this, Observer {
-            Snackbar.make(binding.iContentForm.rvFormItems, it, Snackbar.LENGTH_LONG)
-                .show()
+            when (it) {
+                is String -> {
+
+                    Snackbar.make(
+                        binding.iContentForm.bNext,
+                        it,
+                        Snackbar.LENGTH_LONG
+                    )
+                        .show()
+                }
+                is Int -> {
+
+                    Snackbar.make(binding.iContentForm.bNext, it, Snackbar.LENGTH_LONG)
+                        .show()
+                }
+
+                else -> throw IllegalArgumentException("TSH : Snackbar message type should be either String or Int")
+            }
         })
     }
 
@@ -88,8 +107,10 @@ class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
 
             R.id.action_add_form_item -> {
                 val newItemPosition = viewModel.addFormItem()
-                formItemsAdapter.notifyDataSetChanged()
-                binding.iContentForm.rvFormItems.scrollToPosition(newItemPosition)
+                if (newItemPosition != -1) {
+                    formItemsAdapter.notifyDataSetChanged()
+                    binding.iContentForm.rvFormItems.scrollToPosition(newItemPosition)
+                }
                 true
             }
 
@@ -109,10 +130,62 @@ class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
 
     override fun onSetFromDateClicked(position: Int) {
 
+        showDatePicker(position) { pickedDate ->
+            viewModel.setFromDate(position, pickedDate)
+            formItemsAdapter.notifyItemChanged(position)
+        }
+
     }
 
+
     override fun onSetToDateClicked(position: Int) {
+        if (viewModel.isFromDateSet(position)) {
+            val fromDate = viewModel.getFromDate(position)
+            showDatePicker(position, fromDate) { pickedDate ->
+                viewModel.setToDate(position, pickedDate)
+                formItemsAdapter.notifyItemChanged(position)
+            }
+        } else {
+            viewModel.setSnackBarMessage(R.string.error_date_from_first)
+        }
     }
+
+    private fun showDatePicker(position: Int, minDate: Calendar? = null, callback: (Date) -> Unit) {
+
+        val onDatePicked: (DatePickerDialog, Int, Int, Int) -> Unit =
+            { _, year, monthOfYear, dayOfMonth ->
+                val pickedDate = Calendar.getInstance().apply {
+                    set(Calendar.YEAR, year)
+                    set(Calendar.MONTH, monthOfYear)
+                    set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                }.time
+
+                callback(pickedDate)
+
+            }
+
+        val dpd = if (minDate == null) {
+            DatePickerDialog.newInstance(onDatePicked)
+        } else {
+            DatePickerDialog.newInstance(onDatePicked, minDate).apply {
+                this.minDate = minDate
+            }
+        }
+
+
+        dpd.maxDate = Calendar.getInstance()
+        dpd.disabledDays = viewModel.getDisabledDays(position).toTypedArray()
+        dpd.show(supportFragmentManager, null)
+    }
+
+    override fun onNextClicked() {
+        if (viewModel.isAllItemsAreValid()) {
+            startActivity(
+                PaymentActivity.getStartIntent(this, ArrayList(viewModel.getFormItems()))
+            )
+        }
+    }
+
 
     companion object {
         const val ID = R.id.MAIN_ACTIVITY_ID

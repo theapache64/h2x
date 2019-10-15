@@ -27,25 +27,24 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/cl_payment"
+            app:layout_constraintBottom_toTopOf="@id/b_next"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_form_item" />
 
-        <!--Payment Section-->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_payment"
+        <!--Next-->
+        <Button
+            android:id="@+id/b_next"
             android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:background="@android:color/holo_red_dark"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:onClick="@{()->handler.onNextClicked()}"
+            android:text="@string/action_next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_form_items">
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@id/rv_form_items" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

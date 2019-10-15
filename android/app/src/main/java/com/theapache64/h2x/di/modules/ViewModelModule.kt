@@ -1,4 +1,5 @@
 package com.theapache64.h2x.di.modules
+import com.theapache64.h2x.ui.activities.payment.PaymentViewModel
 
 import androidx.lifecycle.ViewModel
 import com.theapache64.twinkill.di.modules.BaseViewModelModule
@@ -33,4 +34,9 @@ abstract fun bindLogInViewModel(viewModel: LogInViewModel): ViewModel
     @IntoMap
     @ViewModelKey(FormViewModel::class)
     abstract fun bindFormViewModel(viewModel: FormViewModel): ViewModel
+@Binds
+@IntoMap
+@ViewModelKey(PaymentViewModel::class)
+abstract fun bindPaymentViewModel(viewModel: PaymentViewModel): ViewModel
+
 }

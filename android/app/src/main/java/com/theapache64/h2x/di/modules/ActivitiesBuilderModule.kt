@@ -1,4 +1,5 @@
 package com.theapache64.h2x.di.modules
+import com.theapache64.h2x.ui.activities.payment.PaymentActivity
 
 import com.theapache64.h2x.ui.activities.login.LogInActivity
 import com.theapache64.h2x.ui.activities.form.FormActivity
@@ -24,4 +25,7 @@ abstract fun getLogInActivity(): LogInActivity
 
     @ContributesAndroidInjector
     abstract fun getFormActivity(): FormActivity
+@ContributesAndroidInjector
+abstract fun getPaymentActivity(): PaymentActivity
+
 }

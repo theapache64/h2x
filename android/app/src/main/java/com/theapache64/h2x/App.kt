@@ -51,6 +51,6 @@ class App : Application(), HasActivityInjector {
 
 
     companion object {
-        private const val BASE_URL = "https://api.sheety.co/"
+        private const val BASE_URL = "http://api.sheety.co/"
     }
 }
