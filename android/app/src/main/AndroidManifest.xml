@@ -16,10 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity
-            android:name=".ui.activities.payment.PaymentActivity"
-            android:label="@string/title_activity_payment"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity
             android:name=".ui.activities.splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -28,14 +25,24 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- LogIn -->
+        </activity>
+
+        <!-- LogIn -->
         <activity
             android:name=".ui.activities.login.LogInActivity"
-            android:theme="@style/AppTheme.NoActionBar" /> <!-- Main -->
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Main -->
         <activity
             android:name=".ui.activities.form.FormActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.activities.payment.PaymentActivity"
+            android:label="@string/title_activity_payment"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>
