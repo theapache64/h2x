@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.snackbar.Snackbar
 import com.theapache64.h2x.R
 import com.theapache64.h2x.databinding.ActivityFormBinding
 import com.theapache64.h2x.ui.activities.login.LogInActivity
@@ -21,6 +22,8 @@ import javax.inject.Inject
 class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
 
 
+    private lateinit var binding: ActivityFormBinding
+    private lateinit var formItemsAdapter: FormItemsAdapter
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     private lateinit var viewModel: FormViewModel
@@ -29,14 +32,14 @@ class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
-        val binding = bindContentView<ActivityFormBinding>(R.layout.activity_form)
+        this.binding = bindContentView(R.layout.activity_form)
         setSupportActionBar(binding.toolbar)
 
         this.viewModel = ViewModelProviders.of(this, factory).get(FormViewModel::class.java)
         binding.viewModel = viewModel
         binding.handler = this
 
-        val formItemsAdapter = FormItemsAdapter(
+        this.formItemsAdapter = FormItemsAdapter(
             this,
             viewModel.getFormItems()
             , this
@@ -52,7 +55,12 @@ class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
                 startActivity(LogInActivity.getStartIntent(this))
                 finish()
             }
+        })
 
+        // Watching for any SnackBar error
+        viewModel.getSnackBarMessage().observe(this, Observer {
+            Snackbar.make(binding.iContentForm.rvFormItems, it, Snackbar.LENGTH_LONG)
+                .show()
         })
     }
 
@@ -75,23 +83,35 @@ class FormActivity : BaseAppCompatActivity(), FormHandler, FormItemsCallback {
                     }
 
                 dialog.show()
-
                 true
             }
+
+            R.id.action_add_form_item -> {
+                val newItemPosition = viewModel.addFormItem()
+                formItemsAdapter.notifyDataSetChanged()
+                binding.iContentForm.rvFormItems.scrollToPosition(newItemPosition)
+                true
+            }
+
+
             else -> super.onOptionsItemSelected(item)
         }
+
+
     }
 
     override fun onDeleteClicked(position: Int) {
-        viewModel.onDeleteClicked(position)
+        if (viewModel.onDeleteClicked(position)) {
+            // Deleted
+            formItemsAdapter.notifyDataSetChanged()
+        }
     }
 
     override fun onSetFromDateClicked(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onSetToDateClicked(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {

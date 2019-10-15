@@ -30,6 +30,7 @@ class FormItemsAdapter(
     }
 
     inner class ViewHolder(val binding: ItemFormItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root){
+
     }
 }
