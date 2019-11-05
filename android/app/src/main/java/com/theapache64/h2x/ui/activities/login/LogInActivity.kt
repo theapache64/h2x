@@ -17,7 +17,7 @@ import com.theapache64.twinkill.utils.extensions.toast
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class LogInActivity : BaseAppCompatActivity(), LogInClickHandler {
+class LogInActivity : BaseAppCompatActivity(), LogInHandler {
 
 
     @Inject
@@ -39,7 +39,7 @@ class LogInActivity : BaseAppCompatActivity(), LogInClickHandler {
 
         // binding viewModel and clickHandler to layout
         binding.viewModel = viewModel
-        binding.clickHandler = this
+        binding.handler = this
 
         // watching for getUser
         viewModel.getUser().observe(this, Observer {

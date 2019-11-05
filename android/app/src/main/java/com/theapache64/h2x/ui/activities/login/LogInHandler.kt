@@ -1,5 +1,5 @@
 package com.theapache64.h2x.ui.activities.login
 
-interface LogInClickHandler {
+interface LogInHandler {
     fun onLogInClicked();
 }
