@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>h2x</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a id="aHome" href="#" class="navbar-brand">h2x</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!--First Page-->
+    <div id="firstPage">
+        <div class="row">
+
+            <div class="col-sm-8">
+
+                <form id="fh2x" method="POST" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="xp_id">XPlannerID:</label>
+                        <div class="col-sm-9">
+
+                            <input name="xp_id"
+                                   type="number"
+                                   class="form-control"
+                                   id="xp_id"
+                                   value="12345678"
+                                   placeholder="Enter your XPlannerID here"
+                                   required>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="fun_perc">Fun Percentage: </label>
+                        <div class="col-sm-9">
+
+                            <input name="fun_perc"
+                                   type="number"
+                                   class="form-control"
+                                   id="fun_perc"
+                                   placeholder="Enter percentage of fun you had on each day"
+                                   value="8.5"
+                                   required>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label
+                                class="control-label col-sm-3"
+                                for="swipe_data">
+                            Swipe Data
+                        </label>
+
+                        <div class="col-sm-9">
+
+                        <textarea name="swipe_data"
+                                  rows="10"
+                                  class="form-control"
+                                  id="swipe_data"
+                                  required>1.	04/11/2019	04/11/2019	08:51	04/11/2019	20:31	07:34	Present	-
+2.	05/11/2019	05/11/2019	10:45	05/11/2019	21:34	07:30	Present	-
+3.	06/11/2019	06/11/2019	10:03	06/11/2019	21:23	07:42	Present	-
+4.	07/11/2019	07/11/2019	09:57	07/11/2019	20:53	07:20	Present	6977
+5.	08/11/2019	08/11/2019	09:28	08/11/2019	21:43	07:59	Present	-
+6.	09/11/2019	-	--:--	-	--:--	--:--	Saturday	-
+7.	10/11/2019	10/11/2019	17:23	10/11/2019	21:04	03:26	Present	-</textarea>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button id="bGenScript" class="btn btn-primary">Generate Script</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Second Page-->
+    <div id="secondPage">
+        <div class="row">
+
+            <h4><b>Swipe Details</b></h4>
+
+            <div class="col-md-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sl.No.</th>
+                        <th>Date.</th>
+                        <th>In Date</th>
+                        <th>In Time</th>
+                        <th>Out Date</th>
+                        <th>Out Time</th>
+                        <th>Worked Hours</th>
+                        <th>Fun%</th>
+                        <th>Fun Hours</th>
+                        <th>Net Worked Hours</th>
+                        <th>Day Status</th>
+                        <th>Temporary Card ID</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbSwipeDetails">
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-offset-8 col-sm-4">
+                <div class="pull-right">
+                    <p id="pTotalWorkedHours"></p>
+                    <p id="pTotalFunHours"></p>
+                    <p id="pNetWorkedHours"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="taScript" class="control-label">Add Script: </label>
+                        <textarea class="form-control" rows="20" id="taScript"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="dScript" class="control-label">Delete Script: </label>
+                        <textarea class="form-control" rows="20" id="dScript"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="out/production/web/lib/kotlin.js"></script>
+<script src="out/production/web/lib/kotlinx-html-js.js"></script>
+<script src="out/production/web/web.js"></script>
+</html>
