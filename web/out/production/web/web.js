@@ -548,14 +548,16 @@ var web = function (_, Kotlin, $module$kotlinx_html_js) {
       }
       var minutes = toInt(Kotlin.subSequence($receiver_0_1, startIndex_0, endIndex_0 + 1 | 0).toString());
       var minutesInPerc = minutes > 0 ? this.toMinutePerc_0(minutes) : 0;
-      return toDouble(hours.toString() + '.' + minutesInPerc);
+      var x = toDouble(hours.toString() + '.' + minutesInPerc);
+      println(toString(workedHours) + ' -> ' + x);
+      return x;
     }
      else {
       throw IllegalArgumentException_init('Worked hours time format in wrong format ' + toString(workedHours));
     }
   };
   SwipeRowUtils.prototype.toMinutePerc_0 = function (minutes) {
-    var x = minutes / 60.0;
+    var x = (minutes * 100 | 0) / 60.0;
     return numberToInt(round(x));
   };
   SwipeRowUtils.prototype.calcFunHours_dob1fz$ = function (fWorkedHours, _funPerc) {
@@ -563,7 +565,13 @@ var web = function (_, Kotlin, $module$kotlinx_html_js) {
     if (fWorkedHours < this.MIN_THINKPALM_WORK_HOUR_0) {
       funPerc = funPerc - funPerc * 50 / 100;
     }
-    return fWorkedHours * funPerc / 100;
+    var fl = fWorkedHours * funPerc / 100;
+    println('------------------------------');
+    println('Worked Hours : ' + fWorkedHours);
+    println('Fun Perc : ' + funPerc);
+    println('Fun Hours: ' + fl);
+    println('------------------------------');
+    return fl;
   };
   SwipeRowUtils.$metadata$ = {
     kind: Kind_OBJECT,

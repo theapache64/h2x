@@ -29,16 +29,16 @@ object SwipeRowUtils {
             val tempCardId = nullIfInvalid(columns[8])
 
             return SwipeRow(
-                slNo,
-                requestedDate,
-                dayStatus,
-                inDate,
-                inTime,
-                outDate,
-                outTime,
-                workedHours,
-                tempCardId,
-                funPerc
+                    slNo,
+                    requestedDate,
+                    dayStatus,
+                    inDate,
+                    inTime,
+                    outDate,
+                    outTime,
+                    workedHours,
+                    tempCardId,
+                    funPerc
             )
 
         } else {
@@ -86,7 +86,9 @@ object SwipeRowUtils {
             val minutes = chunks[1].trim { it <= ' ' }.toInt()
             val minutesInPerc = if (minutes > 0) toMinutePerc(minutes) else 0
 
-            return "$hours.$minutesInPerc".toFloat()
+            val x = "$hours.$minutesInPerc".toFloat()
+            println("$workedHours -> $x")
+            return x
 
         } else {
             throw IllegalArgumentException("Worked hours time format in wrong format $workedHours")
@@ -94,7 +96,7 @@ object SwipeRowUtils {
     }
 
     private fun toMinutePerc(minutes: Int): Int {
-        val x = minutes / 60f
+        val x = (minutes * 100) / 60f
         return kotlin.math.round(x).toInt()
     }
 
@@ -106,6 +108,12 @@ object SwipeRowUtils {
             funPerc = funPerc - funPerc * 50 / 100
         }
 
-        return fWorkedHours * funPerc / 100
+        val fl = fWorkedHours * funPerc / 100
+        println("------------------------------")
+        println("Worked Hours : $fWorkedHours")
+        println("Fun Perc : $funPerc")
+        println("Fun Hours: $fl")
+        println("------------------------------")
+        return fl
     }
 }

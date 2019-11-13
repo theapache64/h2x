@@ -1,24 +1,22 @@
 class SwipeRow(
-    val slNo: String,
-    val requestedDate: String,
-    val dayStatus: String,
-    val inDate: String?,
-    val inTime: String?,
-    val outDate: String?,
-    val outTime: String?,
-    val workedHours: String?,
-    val temporaryCardId: String?,
-    funPerc: Float
+        val slNo: String,
+        val requestedDate: String,
+        val dayStatus: String,
+        val inDate: String?,
+        val inTime: String?,
+        val outDate: String?,
+        val outTime: String?,
+        val workedHours: String?,
+        val temporaryCardId: String?,
+        funPerc: Float
 ) {
-    private val fWorkedHours: Float
+    private val fWorkedHours: Float = SwipeRowUtils.calcWorkedHours(workedHours)
     private val fFunHours: Float
     private val fNetWorkedHours: Float
-    val funPerc: Float
+    val funPerc: Float = if (inDate == null && outDate == null) 0F else funPerc
 
 
     init {
-        this.fWorkedHours = SwipeRowUtils.calcWorkedHours(workedHours)
-        this.funPerc = if (inDate == null && outDate == null) 0F else funPerc
         this.fFunHours = SwipeRowUtils.calcFunHours(fWorkedHours, this.funPerc)
         this.fNetWorkedHours = fWorkedHours - fFunHours
     }
