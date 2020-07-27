@@ -1,3 +1,4 @@
+import kotlinx.html.HEAD
 import kotlinx.html.dom.create
 import kotlinx.html.js.div
 import kotlinx.html.js.tr
@@ -5,6 +6,9 @@ import kotlinx.html.td
 import org.w3c.dom.*
 import kotlin.browser.document
 import kotlin.browser.window
+
+const val SOURCE_HEADS = "HEADS"
+const val SOURCE_TEMPO = "TEMPO"
 
 fun main() {
 
@@ -22,6 +26,7 @@ fun main() {
     })
 
     // First page
+    val iDataSource = document.getElementById("data_source") as HTMLSelectElement
     val iXpId = document.getElementById("xp_id") as HTMLInputElement
     val iFunPerc = document.getElementById("fun_perc") as HTMLInputElement
     val taSwipeData = document.getElementById("swipe_data") as HTMLTextAreaElement
@@ -33,12 +38,13 @@ fun main() {
         val xpId = iXpId.value
         val funPerc = iFunPerc.value
         val swipeData = taSwipeData.value
+        val dataSource = iDataSource.value
 
         console.log(
                 """
             XPID: $xpId
             funPerc : $funPerc
-            swipeData : $swipeData
+            dataSource : $dataSource
         """.trimIndent()
         )
 
@@ -47,8 +53,11 @@ fun main() {
 
 
         try {
-
-            val swipeRows = H2X.getSwipeRows(xpId, swipeData, funPerc)
+            val swipeRows = if (dataSource == SOURCE_HEADS) {
+                H2X.getSwipeRows(xpId, swipeData, funPerc)
+            } else {
+                TempoToX.getSwipeRows(swipeData)
+            }
             val dates = StringBuilder()
 
             swipeRows?.let { rows ->

@@ -31,6 +31,19 @@
                 <form id="fh2x" method="POST" class="form-horizontal">
 
                     <div class="form-group">
+                        <label class="control-label col-sm-3" for="xp_id">Data Source:</label>
+                        <div class="col-sm-9">
+
+                            <select id="data_source" class="form-control" name="data_source">
+                                <option value="TEMPO">TEMPO</option>
+                                <option value="HEADS">HEADS</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <!--Xplanner ID-->
+                    <div class="form-group">
                         <label class="control-label col-sm-3" for="xp_id">XPlannerID:</label>
                         <div class="col-sm-9">
 
@@ -66,22 +79,17 @@
                         <label
                                 class="control-label col-sm-3"
                                 for="swipe_data">
-                            Swipe Data
+                            Data
                         </label>
 
                         <div class="col-sm-9">
 
                         <textarea name="swipe_data"
                                   rows="10"
+                                  placeholder="Paste data here"
                                   class="form-control"
                                   id="swipe_data"
-                                  required>1.	04/11/2019	04/11/2019	08:51	04/11/2019	20:31	07:34	Present	-
-2.	05/11/2019	05/11/2019	10:45	05/11/2019	21:34	07:30	Present	-
-3.	06/11/2019	06/11/2019	10:03	06/11/2019	21:23	07:42	Present	-
-4.	07/11/2019	07/11/2019	09:57	07/11/2019	20:53	07:20	Present	6977
-5.	08/11/2019	08/11/2019	09:28	08/11/2019	21:43	07:59	Present	-
-6.	09/11/2019	-	--:--	-	--:--	--:--	Saturday	-
-7.	10/11/2019	10/11/2019	17:23	10/11/2019	21:04	03:26	Present	-</textarea>
+                                  required></textarea>
 
                         </div>
                     </div>

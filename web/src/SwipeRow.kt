@@ -1,4 +1,5 @@
 class SwipeRow(
+        val dataSource: String,
         val slNo: String,
         val requestedDate: String,
         val dayStatus: String,
@@ -10,7 +11,14 @@ class SwipeRow(
         val temporaryCardId: String?,
         funPerc: Float
 ) {
-    private val fWorkedHours: Float = SwipeRowUtils.calcWorkedHours(workedHours)
+    private val fWorkedHours by lazy {
+        if (dataSource == SOURCE_HEADS) {
+            SwipeRowUtils.calcWorkedHours(workedHours)
+        } else {
+            require(workedHours != null) { "When dataSource $dataSource, workedHours can't be null" }
+            workedHours.toFloat()
+        }
+    }
     private val fFunHours: Float
     private val fNetWorkedHours: Float
     val funPerc: Float = if (inDate == null && outDate == null) 0F else funPerc
